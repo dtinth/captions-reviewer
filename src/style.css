@@ -1,0 +1,50 @@
+.CueItem {
+  position: relative;
+  display: flex;
+  margin-bottom: 0.25rem;
+  align-items: baseline;
+}
+
+.CueItem-time {
+  flex: 0 0 auto;
+  display: block;
+  width: 4em;
+  color: #666;
+  user-select: none;
+  font-variant-numeric: tabular-nums;
+}
+
+.CueItem-text {
+  flex: 1;
+  position: relative;
+}
+
+.font-cue {
+  font-family: "Sarabun", sans-serif;
+  letter-spacing: 0.05ch;
+}
+
+.CueItem-flag {
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  opacity: 0;
+}
+
+.CueItem-text:hover .CueItem-flag,
+.CueItem-text:focus-within .CueItem-flag {
+  opacity: 0.9;
+}
+
+.CueItem-flag:hover {
+  opacity: 1;
+}
+
+.CueItem[data-active="true"] {
+  background: color-mix(in srgb, var(--bs-primary) 32%, transparent);
+}
