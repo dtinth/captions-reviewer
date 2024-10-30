@@ -1,54 +1,35 @@
-# Astro Starter Kit: Basics
+# Caption Reviewer
 
-```sh
-npm create astro@latest -- --template basics
-```
+## Description
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Caption Reviewer is a web application that allows you to review video captions. It provides features such as auto-scrolling to the active cue, seeking to specific times, and flagging cues for review. The app is built using React, Astro, Bootstrap, and nanostores.
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## How to Use
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+### General Usage
 
-## 🚀 Project Structure
+1. Open your web browser and navigate to `https://captions-reviewer.vercel.app`.
+2. You will see the main interface of the Captions Reviewer application. A default video and captions are loaded (see below for how to use it with other videos).
+3. Once the video and captions are loaded, you can play the video and review the captions.
+4. The interface provides features such as auto-scrolling to the active cue, seeking to specific times, and flagging cues for review.
+5. You can use keyboard shortcuts to control playback and seek through the video:
+   * Spacebar: Toggle playback
+   * Arrow Left: Seek backward by 5 seconds
+   * Arrow Right: Seek forward by 5 seconds
 
-Inside of your Astro project, you'll see the following folders and files:
+### Using the App with Other Videos
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+To use the Caption Reviewer application with other videos:
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+1. Publish a configuration file at a CORS-enabled URL. The configuration file should contain the `videoUrl` and `vttUrl` in JSON format, similar to the example in `src/example.json`.
+2. Ensure that the `videoUrl` is a valid YouTube URL. Note that only YouTube videos are supported for now.
+3. Ensure that the `vttUrl` points to the subtitles file in VTT format. Also make sure it is CORS enabled.
+4. Open your web browser and navigate to `https://captions-reviewer.vercel.app?url=YOUR_CONFIGURATION_FILE_URL`.
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## Technologies Used
 
-Any static assets, like images, can be placed in the `public/` directory.
+* React
+* Astro
+* Bootstrap
+* nanostores
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
