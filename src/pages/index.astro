@@ -4,8 +4,12 @@ import Layout from "../layouts/Layout.astro";
 ---
 
 <Layout title="Captions reviewer">
-  <div class="container">
-    <h1 class="mt-3">Captions reviewer</h1>
-    <CaptionReviewerMainView client:only="react" />
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="mt-3">Captions reviewer</h1>
+      </div>
+    </div>
   </div>
+  <CaptionReviewerMainView client:only="react" />
 </Layout>

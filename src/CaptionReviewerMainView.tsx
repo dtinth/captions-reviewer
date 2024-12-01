@@ -14,6 +14,7 @@ import {
   $initStatus,
   $playing,
   $video,
+  getFlag,
   initializeState,
 } from "./state";
 import "./style.css";
@@ -158,6 +159,9 @@ const CueItem = React.memo(
     const activeCueIndex = useStore($activeCueIndex);
     const isActive = index === activeCueIndex;
     const itemRef = useRef<HTMLParagraphElement>(null);
+    const flag = getFlag(cue);
+    const flagOperationPending = useStore(flag.$loading);
+    const flagged = useStore(flag.$flagged);
 
     useEffect(() => {
       if (isActive && itemRef.current && $autoScroll.get()) {
@@ -169,7 +173,13 @@ const CueItem = React.memo(
     }, [isActive]);
 
     return (
-      <p ref={itemRef} className="CueItem" data-active={String(isActive)}>
+      <p
+        ref={itemRef}
+        className="CueItem"
+        data-active={String(isActive)}
+        data-flagged={String(flagged)}
+        data-flag-operation-pending={String(flagOperationPending)}
+      >
         <span
           className="CueItem-time"
           onClick={() => $videoControl.seek(cue.data.start / 1000)}
@@ -179,10 +189,7 @@ const CueItem = React.memo(
         </span>
         <span className="CueItem-text font-cue">
           {cue.data.text}
-          <button
-            className="CueItem-flag"
-            onClick={() => alert("Unimplemented")}
-          >
+          <button className="CueItem-flag" onClick={() => flag.toggle()}>
             🚩
           </button>
         </span>
@@ -288,14 +295,25 @@ export function CaptionReviewerMainView() {
           $videoControl.togglePlayback();
           break;
         case "ArrowLeft":
+        case "ArrowUp":
           e.preventDefault();
           const currentTime = playerRef.current?.getCurrentTime() || 0;
           $videoControl.seek(currentTime - 5);
           break;
         case "ArrowRight":
+        case "ArrowDown":
           e.preventDefault();
           const currentTime2 = playerRef.current?.getCurrentTime() || 0;
           $videoControl.seek(currentTime2 + 5);
+          break;
+        case "f":
+          e.preventDefault();
+          const button = document.querySelector<HTMLButtonElement>(
+            '.CueItem[data-active="true"] .CueItem-flag'
+          );
+          if (button) {
+            button.click();
+          }
           break;
       }
     };
@@ -305,7 +323,7 @@ export function CaptionReviewerMainView() {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container-fluid">
       <div className="row">
         <div className="col-md-7">
           <div className="mb-3">

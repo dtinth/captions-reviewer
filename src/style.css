@@ -48,3 +48,11 @@
 .CueItem[data-active="true"] {
   background: color-mix(in srgb, var(--bs-primary) 32%, transparent);
 }
+
+.CueItem[data-flagged="true"] .CueItem-text {
+  color: var(--bs-red);
+}
+
+.CueItem[data-flag-operation-pending="true"] {
+  opacity: 0.5;
+}

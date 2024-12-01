@@ -20,6 +20,9 @@ importers:
       '@nanostores/react':
         specifier: ^0.8.0
         version: 0.8.0(nanostores@0.11.3)(react@18.3.1)
+      '@thai/get-or-create':
+        specifier: npm:@jsr/thai__get-or-create@0.0.5-alpha.0
+        version: '@jsr/thai__get-or-create@0.0.5-alpha.0'
       '@types/react':
         specifier: ^18.3.12
         version: 18.3.12
@@ -496,6 +499,9 @@ packages:
 
   '@jridgewell/trace-mapping@0.3.25':
     resolution: {integrity: sha512-vNk6aEwybGtawWmy/PzwnGDOjCkLWSD2wqvjGGAgOAwCGWySYXfYoxt00IJkTF+8Lb57DwOb3Aa0o9CApepiYQ==}
+
+  '@jsr/thai__get-or-create@0.0.5-alpha.0':
+    resolution: {integrity: sha512-/9wwRPpV6hBHJuUktz/H9zVFUNs3HD3sCMjDsePZ0zAKiI+COJnHlK64nZyYtQ/wNB5psYZUu7lzZwlGeI2Odg==, tarball: https://npm.jsr.io/~/11/@jsr/thai__get-or-create/0.0.5-alpha.0.tgz}
 
   '@nanostores/react@0.8.0':
     resolution: {integrity: sha512-MhbVB7NQLboq/Z9fRTDen9zib/YCffe6mn+3Xg5MOYByMX5Xx98SOZjk/Nd3yvOd/g7GjlQqwXj0KF2lPb6CEQ==}
@@ -2959,6 +2965,8 @@ snapshots:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.5.0
+
+  '@jsr/thai__get-or-create@0.0.5-alpha.0': {}
 
   '@nanostores/react@0.8.0(nanostores@0.11.3)(react@18.3.1)':
     dependencies:
